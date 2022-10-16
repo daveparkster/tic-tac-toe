@@ -1,0 +1,65 @@
+html,
+body {
+  height: 100%;
+}
+
+:root {
+  --background-color: #92e7af;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  --background-color: #92e7af;
+  --header-font-size: 3rem;
+  --letter-spacing: 0.2rem;
+
+  flex: 1.5 1.5;
+  background-color: var(--background-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: var(--header-font-size);
+  font-weight: bold;
+  color: white;
+  letter-spacing: var(--letter-spacing);
+}
+
+main {
+  --background-color: rgb(224, 224, 224);
+
+  flex: 10 10;
+  background-color: var(--background-color);
+  display: flex;
+  flex-direction: column;
+}
+
+main > * {
+  border: 2px solid red;
+}
+
+main h2 {
+  margin: 0;
+  flex: 1 1;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+main .gameboard-container {
+  flex: 10 10;
+}
+
+main .button-container {
+  flex: 2 2;
+}
