@@ -23,13 +23,13 @@ header {
   --header-font-size: 3rem;
   --letter-spacing: 0.2rem;
 
-  flex: 1.5 1.5;
+  flex: 1 1;
   background-color: var(--background-color);
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-end;
   font-size: var(--header-font-size);
-  font-weight: bold;
+  font-weight: bolder;
   color: white;
   letter-spacing: var(--letter-spacing);
 }
@@ -47,19 +47,34 @@ main > * {
   border: 2px solid red;
 }
 
+
 main h2 {
+  --font-size: 2rem;
+
+
   margin: 0;
   flex: 1 1;
 
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-end;
+  font-size: var(--font-size);
 }
 
 main .gameboard-container {
-  flex: 10 10;
+  flex: 8 8;
 }
 
 main .button-container {
-  flex: 2 2;
+  flex: 3 3;
+
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  
+}
+
+main .button-container button {
+  height: 30%;
+  width: 10%;
 }
