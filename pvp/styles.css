@@ -67,7 +67,7 @@ main .gameboard-container {
 main .gameboard-container .gameboard {
   border: 2px solid green;
   
-  width: 55%;
+  width: 40%;
 }
 
 /*parent button-container*/
