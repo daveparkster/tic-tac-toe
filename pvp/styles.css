@@ -23,7 +23,7 @@ header {
   --header-font-size: 3rem;
   --letter-spacing: 0.2rem;
 
-  flex: 1 1;
+  flex: 1.5 1.5;
   background-color: var(--background-color);
   display: flex;
   justify-content: center;
@@ -47,10 +47,9 @@ main > * {
   border: 2px solid red;
 }
 
-
+/*playerupdate*/
 main h2 {
   --font-size: 2rem;
-
 
   margin: 0;
   flex: 1 1;
@@ -61,12 +60,14 @@ main h2 {
   font-size: var(--font-size);
 }
 
+/*parent container of gameboard*/
 main .gameboard-container {
   flex: 8 8;
 }
 
+/*parent button-container*/
 main .button-container {
-  flex: 3 3;
+  flex: 2.5 2.5;
 
   display: flex;
   justify-content: center;
@@ -75,6 +76,21 @@ main .button-container {
 }
 
 main .button-container button {
+  --button-font-size: 1.45rem;
+  --button-background-color: #92e7af; 
+  --button-text-color: white;
+  --button-letter-spacing: 0.10rem;
+
   height: 30%;
-  width: 10%;
+  width: 10%; 
+  font-size: var(--button-font-size);
+  background-color: var(--button-background-color);
+  color: var(--button-text-color);
+  border: none;
+  border-radius: 1rem;
+  letter-spacing: var(--button-letter-spacing);
+}
+
+main .button-container button:hover {
+  background-color: #6ddf93;
 }
