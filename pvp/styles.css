@@ -43,10 +43,6 @@ main {
   flex-direction: column;
 }
 
-main > * {
-  /*border: 2px solid red;*/
-}
-
 /*playerupdate*/
 main h2 {
   --font-size: 2rem;
