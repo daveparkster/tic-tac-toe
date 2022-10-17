@@ -68,6 +68,9 @@ main .gameboard-container .gameboard {
   border: 2px solid green;
   
   width: 40%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
 }
 
 /*parent button-container*/
