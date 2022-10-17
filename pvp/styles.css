@@ -20,14 +20,14 @@ body {
 
 header {
   --background-color: #92e7af;
-  --header-font-size: 3rem;
+  --header-font-size: 3.5rem;
   --letter-spacing: 0.2rem;
 
   flex: 1.5 1.5;
   background-color: var(--background-color);
   display: flex;
   justify-content: center;
-  align-items: flex-end;
+  align-items: center;
   font-size: var(--header-font-size);
   font-weight: bolder;
   color: white;
@@ -44,7 +44,7 @@ main {
 }
 
 main > * {
-  border: 2px solid red;
+  /*border: 2px solid red;*/
 }
 
 /*playerupdate*/
@@ -56,23 +56,31 @@ main h2 {
 
   display: flex;
   justify-content: center;
-  align-items: flex-end;
+  align-items: center;
   font-size: var(--font-size);
 }
 
 /*parent container of gameboard*/
 main .gameboard-container {
   flex: 8 8;
+  display: flex;
+  justify-content: center;
+}
+
+/*gameboard*/
+main .gameboard-container .gameboard {
+  border: 2px solid green;
+  
+  width: 55%;
 }
 
 /*parent button-container*/
 main .button-container {
-  flex: 2.5 2.5;
+  flex: 1.5 1.5;
 
   display: flex;
   justify-content: center;
-  align-items: flex-start;
-  
+  align-items: center;
 }
 
 main .button-container button {
@@ -81,8 +89,8 @@ main .button-container button {
   --button-text-color: white;
   --button-letter-spacing: 0.10rem;
 
-  height: 30%;
-  width: 10%; 
+  height: 45%;
+  width: 11%; 
   font-size: var(--button-font-size);
   background-color: var(--button-background-color);
   color: var(--button-text-color);
