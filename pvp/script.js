@@ -1,29 +1,27 @@
 const Blocks = (() => {
   //Private variables and functions
-  let container = document.querySelector('.gameboard');
+  const container = document.querySelector('.gameboard');
 
   const createBlocks = function() {
     for (let i = 0; i < 9; i++) {
-      let block = document.createElement('div');
-      block.style.border = '2px solid black';
-      block.classList.add('gameboard-block');
-      container.appendChild(block)
+      const div = document.createElement('div');
+      div.style.border = '2px solid black';
+      div.classList.add('gameboard-block');
+      container.appendChild(div)
                .setAttribute('block', i);
     }
   }
   return {createBlocks};
 })(); 
 
-//Private function to create players//
+//Private function to create player profile
 const Player = (name) => {
-  const choice = [];
-
+  let choice = [];
   return {name, choice};
-};
+}
 
+Blocks.createBlocks();
+const PLAYER_X = Player('playerX');
+const PLAYER_O = Player('playerO');
 
-
-const playerX = Player('playerX');
-const playerO = Player('playerO');
-
-Blocks.createBlocks(); 
+ 
