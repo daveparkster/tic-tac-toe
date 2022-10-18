@@ -14,15 +14,16 @@ const Blocks = (() => {
   return {createBlocks};
 })(); 
 
-const Player = (() => {
+//Private function to create players//
+const Player = (name) => {
+  const choice = [];
 
-})();
-
-
-
-
-
+  return {name, choice};
+};
 
 
+
+const playerX = Player('playerX');
+const playerO = Player('playerO');
 
 Blocks.createBlocks(); 
