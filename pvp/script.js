@@ -14,7 +14,7 @@ const Blocks = (() => {
   return {createBlocks};
 })(); 
 
-//Private function to create player profile
+//Factory function to create player profile
 const Player = (name) => {
   let choice = [];
   return {name, choice};
