@@ -20,8 +20,51 @@ const Player = (name) => {
   return {name, choice};
 }
 
+const Game = (() => {
+
+  let selections = [];
+  
+  const playGame = (object1, object2) => {
+    let blocks = document.querySelector('.gameboard').querySelectorAll('.gameboard-block');
+    
+    for (let i = 0; i < blocks.length; i++) {
+      blocks[i].addEventListener('click', () => {
+        selections.push(blocks[i].getAttribute('block'));
+        displayChoice(selections, blocks[i]);
+      }, {once: true});
+    }; 
+  };
+
+  const displayChoice = (array, currentElement) => {
+    let lastIndex = array.length - 1;
+    let title = document.querySelector('.playerturn');
+    
+    if(lastIndex % 2 === 0) {
+      let choiceX = document.createElement('div');
+      choiceX.textContent = 'X';
+      choiceX.classList.add('choice');
+      currentElement.appendChild(choiceX);
+
+      title.textContent = `Player O's Turn`;
+
+    } else if(lastIndex % 2 === 1) {
+      let choiceO = document.createElement('div');
+      choiceO.textContent = 'O';
+      choiceO.classList.add('choice');
+      currentElement.appendChild(choiceO);
+
+      title.textContent = `Player X's Turn`;
+    }
+  };
+
+  return{playGame};
+
+})();
+
 Blocks.createBlocks();
 const PLAYER_X = Player('playerX');
 const PLAYER_O = Player('playerO');
+Game.playGame(PLAYER_X, PLAYER_O);
+
 
  
