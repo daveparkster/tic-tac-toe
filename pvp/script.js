@@ -22,40 +22,71 @@ const Player = (name) => {
 
 const Game = (() => {
 
-  let selections = [];
+  let allSelections = [];
   
   const playGame = (object1, object2) => {
     let blocks = document.querySelector('.gameboard').querySelectorAll('.gameboard-block');
+
+    let playerX = object1;
+    let playerO = object2;
     
     for (let i = 0; i < blocks.length; i++) {
       blocks[i].addEventListener('click', () => {
-        selections.push(blocks[i].getAttribute('block'));
-        displayChoice(selections, blocks[i]);
+        allSelections.push(blocks[i].getAttribute('block'));
+        getChoice(allSelections, blocks[i], playerX, playerO);
       }, {once: true});
     }; 
   };
 
-  const displayChoice = (array, currentElement) => {
+  const getChoice = (array, currentElement, object1, object2) => {
+
     let lastIndex = array.length - 1;
     let title = document.querySelector('.playerturn');
-    
-    if(lastIndex % 2 === 0) {
-      let choiceX = document.createElement('div');
-      choiceX.textContent = 'X';
-      choiceX.classList.add('choice');
-      currentElement.appendChild(choiceX);
 
-      title.textContent = `Player O's Turn`;
+    if(lastIndex % 2 === 0) {
+    
+      object1['choice'].push(allSelections[allSelections.length - 1]);
+
+      if((object1['choice'].length >= 3) && (object1['choice'].length <= 5)) {
+
+      } else if(object1['choice'].length < 3) {
+          displayXChoice(currentElement, title);
+      } else {
+
+      }
 
     } else if(lastIndex % 2 === 1) {
-      let choiceO = document.createElement('div');
-      choiceO.textContent = 'O';
-      choiceO.classList.add('choice');
-      currentElement.appendChild(choiceO);
+      
+      object2['choice'].push(allSelections[allSelections.length -1]);
 
-      title.textContent = `Player X's Turn`;
+      if((object2['choice'].length >= 3) && (object2['choice'].length <= 4)) {
+
+      } else if(object2['choice'].length < 3) {
+          displayOChoice(currentElement, title);
+      } else {
+
+      }
+
     }
   };
+
+  const displayXChoice = (element, status) => {
+    let choiceX = document.createElement('div');
+    choiceX.textContent = 'X';
+    choiceX.classList.add('choice');
+    element.appendChild(choiceX);
+
+    status.textContent = `Player O's Turn`;
+  }; 
+
+  const displayOChoice = (element, status) => {
+    let choiceO = document.createElement('div');
+    choiceO.textContent = 'O';
+    choiceO.classList.add('choice');
+    element.appendChild(choiceO);
+
+    status.textContent = `Player X's Turn`; 
+  }; 
 
   return{playGame};
 
