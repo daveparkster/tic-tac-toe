@@ -20,6 +20,7 @@ const Player = (name) => {
   return {name, choice};
 }
 
+//Game Module
 const Game = (() => {
 
   let allSelections = [];
@@ -32,7 +33,7 @@ const Game = (() => {
     
     for (let i = 0; i < blocks.length; i++) {
       blocks[i].addEventListener('click', () => {
-        allSelections.push(blocks[i].getAttribute('block'));
+        allSelections.push(Number(blocks[i].getAttribute('block')));
         getChoice(allSelections, blocks[i], playerX, playerO);
       }, {once: true});
     }; 
@@ -42,29 +43,43 @@ const Game = (() => {
 
     let lastIndex = array.length - 1;
     let title = document.querySelector('.playerturn');
+    let objectX = object1;
+    let objectO = object2;
 
     if(lastIndex % 2 === 0) {
     
-      object1['choice'].push(allSelections[allSelections.length - 1]);
+      objectX['choice'].push(allSelections[allSelections.length - 1]);
 
-      if((object1['choice'].length >= 3) && (object1['choice'].length <= 5)) {
-
-      } else if(object1['choice'].length < 3) {
+      if((objectX['choice'].length >= 3 && objectX['choice'].length <= 5)) {
+          if(checkVictory(objectX) === true) {
+            displayXVictory(currentElement, title);
+            //remove all eventlisteners
+          } else if((checkVictory(objectX) === false) && (objectX['choice'].length === 5)) {
+            displayDraw(currentElement, title);
+            //remove all event listners
+          } else {
+            displayXChoice(currentElement, title);
+          }
+      } else if(objectX['choice'].length < 3) {
           displayXChoice(currentElement, title);
       } else {
-
+          displayDraw(currentElement, title);
+          // remove all event listeners
       }
 
     } else if(lastIndex % 2 === 1) {
       
-      object2['choice'].push(allSelections[allSelections.length -1]);
+      objectO['choice'].push(allSelections[allSelections.length -1]);
 
-      if((object2['choice'].length >= 3) && (object2['choice'].length <= 4)) {
-
-      } else if(object2['choice'].length < 3) {
+      if(objectO['choice'].length >= 3) {
+        if(checkVictory(objectO) === true) {
+          displayOVictory(currentElement, title);
+          //remove all eventlisteners
+        } else {
           displayOChoice(currentElement, title);
-      } else {
-
+        }
+      } else if(objectO['choice'].length < 3) {
+          displayOChoice(currentElement, title);
       }
 
     }
@@ -87,6 +102,66 @@ const Game = (() => {
 
     status.textContent = `Player X's Turn`; 
   }; 
+
+  const checkVictory = (object) => {
+    let selections = object['choice'];
+    let overallResult;
+    
+    let winningChoices = [
+      [0, 1, 2],
+      [3, 4, 5],
+      [6, 7, 8],
+      [0, 3, 6],
+      [1, 4, 7],
+      [2, 5, 8],
+      [0, 4, 8],
+      [2, 4, 6]
+    ];
+
+    const isSubset = (array1, array2) => array2.every((element) => array1.includes(element));
+
+
+    for(let i = 0; i < 8; i++) {
+      let result = isSubset(selections, winningChoices[i]);
+      
+      if(result === true) {
+        overallResult = true;
+        break;
+      } else {
+        overallResult = false;
+      }
+    }
+
+    return overallResult;
+  }; 
+
+  const displayXVictory = (element, status) => {
+    let choiceX = document.createElement('div');
+    choiceX.textContent = 'X';
+    choiceX.classList.add('choice');
+    element.appendChild(choiceX);
+    
+    status.textContent = "PlayerX Wins";
+  };
+
+  const displayOVictory= (element, status) => {
+    let choiceO = document.createElement('div');
+    choiceO.textContent = 'O';
+    choiceO.classList.add('choice');
+    element.appendChild(choiceO);
+    
+    status.textContent = `PlayerO Wins`;
+  };
+
+  const displayDraw = (element, status) => {
+    let choiceX = document.createElement('div');
+    choiceX.textContent = 'X';
+    choiceX.classList.add('choice');
+    element.appendChild(choiceX);
+
+    status.textContent = 'Draw';
+  }; 
+
 
   return{playGame};
 
