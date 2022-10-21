@@ -4,7 +4,7 @@ body {
 }
 
 :root {
-  --background-color: #92e7af;
+  --background-color: #92e1e7;
 }
 
 body {
@@ -19,7 +19,7 @@ body {
 }
 
 header {
-  --background-color: #92e7af;
+  --background-color: #92e1e7;
   --header-font-size: 3.5rem;
   --letter-spacing: 0.2rem;
 
@@ -86,7 +86,7 @@ main .gameboard-container .gameboard {
 
 /*add hover effect to block*/
 .gameboard > *:hover {
-  --background-color: #92e7af;
+  --background-color: #92e1e7;
   background-color: var(--background-color);
 }
 
@@ -101,7 +101,7 @@ main .button-container {
 
 main .button-container button {
   --button-font-size: 1.45rem;
-  --button-background-color: #92e7af; 
+  --button-background-color: #92e1e7; 
   --button-text-color: white;
   --button-letter-spacing: 0.10rem;
 
@@ -116,5 +116,5 @@ main .button-container button {
 }
 
 main .button-container button:hover {
-  background-color: #6ddf93;
+  background-color: #66d0d8;
 }
