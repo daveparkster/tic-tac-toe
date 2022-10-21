@@ -30,13 +30,13 @@ const Game = (() => {
 
     let playerX = object1;
     let playerO = object2;
-    
-    for (let i = 0; i < blocks.length; i++) {
-      blocks[i].addEventListener('click', () => {
-        allSelections.push(Number(blocks[i].getAttribute('block')));
-        getChoice(allSelections, blocks[i], playerX, playerO);
+
+    blocks.forEach((block, index) => {
+      block.addEventListener('click', function updateChoice() {
+        allSelections.push(Number(blocks[index].getAttribute('block')));
+        getChoice(allSelections, blocks[index], playerX, playerO);
       }, {once: true});
-    }; 
+    });
   };
 
   const getChoice = (array, currentElement, object1, object2) => {
@@ -53,10 +53,11 @@ const Game = (() => {
       if((objectX['choice'].length >= 3 && objectX['choice'].length <= 5)) {
           if(checkVictory(objectX) === true) {
             displayXVictory(currentElement, title);
-            //remove all eventlisteners
+            //disableGame();
           } else if((checkVictory(objectX) === false) && (objectX['choice'].length === 5)) {
             displayDraw(currentElement, title);
-            //remove all event listners
+            //disableGame();
+            // removeEventListner('click', blah)
           } else {
             displayXChoice(currentElement, title);
           }
@@ -161,6 +162,8 @@ const Game = (() => {
 
     status.textContent = 'Draw';
   }; 
+
+
 
 
   return{playGame};
