@@ -53,11 +53,10 @@ const Game = (() => {
       if((objectX['choice'].length >= 3 && objectX['choice'].length <= 5)) {
           if(checkVictory(objectX) === true) {
             displayXVictory(currentElement, title);
-            //disableGame();
+            disableChoices();
           } else if((checkVictory(objectX) === false) && (objectX['choice'].length === 5)) {
             displayDraw(currentElement, title);
-            //disableGame();
-            // removeEventListner('click', blah)
+            disableChoices();
           } else {
             displayXChoice(currentElement, title);
           }
@@ -65,7 +64,7 @@ const Game = (() => {
           displayXChoice(currentElement, title);
       } else {
           displayDraw(currentElement, title);
-          // remove all event listeners
+          disableChoices();
       }
 
     } else if(lastIndex % 2 === 1) {
@@ -75,7 +74,7 @@ const Game = (() => {
       if(objectO['choice'].length >= 3) {
         if(checkVictory(objectO) === true) {
           displayOVictory(currentElement, title);
-          //remove all eventlisteners
+          disableChoices();
         } else {
           displayOChoice(currentElement, title);
         }
@@ -163,7 +162,12 @@ const Game = (() => {
     status.textContent = 'Draw';
   }; 
 
-
+  const disableChoices = () => {
+    console.log('disableChoices');
+    let old_gameboard = document.querySelector('.gameboard');
+    let new_gameboard = old_gameboard.cloneNode(true);
+    old_gameboard.parentNode.replaceChild(new_gameboard, old_gameboard);
+  };
 
 
   return{playGame};
