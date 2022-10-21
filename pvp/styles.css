@@ -54,6 +54,7 @@ main h2 {
   justify-content: center;
   align-items: center;
   font-size: var(--font-size);
+  word-spacing: -1rem;
 }
 
 /*parent container of gameboard*/
