@@ -182,7 +182,7 @@ const Game = (() => {
 })();
 
 Blocks.createBlocks();
-const PLAYER_X = Player('playerX');
-const PLAYER_O = Player('playerO');
-Game.resetGame(PLAYER_X, PLAYER_O); 
-Game.playGame(PLAYER_X, PLAYER_O);
+const HUMAN = Player('human');
+const CPU = Player('cpu');
+Game.resetGame(HUMAN, CPU); 
+Game.playGame(HUMAN, CPU);
