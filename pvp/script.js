@@ -141,7 +141,7 @@ const Game = (() => {
     choiceX.classList.add('choice');
     element.appendChild(choiceX);
     
-    status.textContent = "PlayerX Wins";
+    status.textContent = "Player X Wins";
   };
 
   const displayOVictory= (element, status) => {
@@ -150,7 +150,7 @@ const Game = (() => {
     choiceO.classList.add('choice');
     element.appendChild(choiceO);
     
-    status.textContent = `PlayerO Wins`;
+    status.textContent = `Player O Wins`;
   };
 
   const displayDraw = (element, status) => {
