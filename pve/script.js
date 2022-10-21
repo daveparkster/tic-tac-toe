@@ -91,7 +91,7 @@ const Game = (() => {
     choiceX.classList.add('choice');
     element.appendChild(choiceX);
 
-    status.textContent = `Player O's Turn`;
+    status.textContent = `Human's Turn`;
   }; 
 
   const displayOChoice = (element, status) => {
@@ -100,7 +100,7 @@ const Game = (() => {
     choiceO.classList.add('choice');
     element.appendChild(choiceO);
 
-    status.textContent = `Player X's Turn`; 
+    status.textContent = `Computer's Turn`; 
   }; 
 
   const checkVictory = (object) => {
