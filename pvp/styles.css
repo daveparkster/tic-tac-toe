@@ -76,6 +76,14 @@ main .gameboard-container .gameboard {
   grid-template-rows: repeat(3, 1fr);
 }
 
+/*gameboard block*/
+.gameboard-container .gameboard .gameboard-block {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 5rem;
+}
+
 /*add hover effect to block*/
 .gameboard > *:hover {
   --background-color: #92e7af;
@@ -110,3 +118,4 @@ main .button-container button {
 main .button-container button:hover {
   background-color: #6ddf93;
 }
+
