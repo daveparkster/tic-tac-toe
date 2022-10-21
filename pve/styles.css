@@ -1,0 +1,120 @@
+html,
+body {
+  height: 100%;
+}
+
+:root {
+  --background-color: #92e7af;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  --background-color: #92e7af;
+  --header-font-size: 3.5rem;
+  --letter-spacing: 0.2rem;
+
+  flex: 1.5 1.5;
+  background-color: var(--background-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: var(--header-font-size);
+  font-weight: bolder;
+  color: white;
+  letter-spacing: var(--letter-spacing);
+}
+
+main {
+  --background-color: rgb(224, 224, 224);
+
+  flex: 10 10;
+  background-color: var(--background-color);
+  display: flex;
+  flex-direction: column;
+}
+
+/*playerupdate*/
+main h2 {
+  --font-size: 2rem;
+
+  margin: 0;
+  flex: 1 1;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: var(--font-size);
+  word-spacing: -1rem;
+}
+
+/*parent container of gameboard*/
+main .gameboard-container {
+  flex: 8 8;
+  display: flex;
+  justify-content: center;
+}
+
+/*gameboard*/
+main .gameboard-container .gameboard {
+  --background-color: white;
+
+  border: 2px solid black;
+  background-color: var(--background-color);
+  width: 40%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+}
+
+/*gameboard block*/
+.gameboard-container .gameboard .gameboard-block {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 5rem;
+}
+
+/*add hover effect to block*/
+.gameboard > *:hover {
+  --background-color: #92e7af;
+  background-color: var(--background-color);
+}
+
+/*parent button-container*/
+main .button-container {
+  flex: 1.5 1.5;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+main .button-container button {
+  --button-font-size: 1.45rem;
+  --button-background-color: #92e7af; 
+  --button-text-color: white;
+  --button-letter-spacing: 0.10rem;
+
+  height: 45%;
+  width: 11%; 
+  font-size: var(--button-font-size);
+  background-color: var(--button-background-color);
+  color: var(--button-text-color);
+  border: none;
+  border-radius: 1rem;
+  letter-spacing: var(--button-letter-spacing);
+}
+
+main .button-container button:hover {
+  background-color: #6ddf93;
+}
