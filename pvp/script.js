@@ -163,7 +163,6 @@ const Game = (() => {
   }; 
 
   const disableChoices = () => {
-    console.log('disableChoices');
     let old_gameboard = document.querySelector('.gameboard');
     let new_gameboard = old_gameboard.cloneNode(true);
     old_gameboard.parentNode.replaceChild(new_gameboard, old_gameboard);
