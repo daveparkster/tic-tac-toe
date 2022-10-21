@@ -168,14 +168,23 @@ const Game = (() => {
     old_gameboard.parentNode.replaceChild(new_gameboard, old_gameboard);
   };
 
+  const resetGame = (player1, player2) => {
+    const restart = document.querySelector('.restart');
 
-  return{playGame};
+    restart.addEventListener('click', () => {
+      window.location.reload();
+    });
+  }; 
+
+
+  return{playGame, resetGame};
 
 })();
 
 Blocks.createBlocks();
 const PLAYER_X = Player('playerX');
 const PLAYER_O = Player('playerO');
+Game.resetGame(PLAYER_X, PLAYER_O); 
 Game.playGame(PLAYER_X, PLAYER_O);
 
 
