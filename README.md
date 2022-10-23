@@ -31,8 +31,8 @@ A PvP Tic-Tac-Toe Game
  1) Create objects using factory functions. 
  2) Understand key concepts of scope and closure
     and applying those concepts.
- 3) Incoporate private variables/functions into 
-    Modules.
+ 3) Incoporate private variables/functions and
+    adhere to a module pattern.
  4) Implement a workaround to disable event 
     listeners without specifically using the 
     removeEventListener method.
